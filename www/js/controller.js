@@ -13,3 +13,8 @@ angular.module('starter')
     'Montana Cabine dupla'
   ];
 });
+
+angular.module('starter')
+.controller('CarController', function($stateParams, $scope){
+  $scope.selectedCar = $stateParams.selectedCar;
+});

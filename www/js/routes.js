@@ -6,6 +6,11 @@ angular.module('starter')
       url:'/list',
       templateUrl: 'templates/list.html',
       controller: 'ListController'
+    })
+    .state('car', {
+      url:'/car/:selectedCar',
+      templateUrl: 'templates/car.html',
+      controller: 'CarController'
     });
 
 })
