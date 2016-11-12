@@ -7,9 +7,20 @@
       </div>
       <div class="item item-text-wrap">
         {{selectedCar.name}}
+        <ul class="list">
+          <li class="item item-toggle" ng-repeat="accessory in accessories">
+            {{accessory.name}} - R{{accessory.price | currency}}
+           <label class="toggle toggle-positive">
+             <input type="checkbox" ng-model="isChecked" ng-click="check(accessory, isChecked)"">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+          </li>
+        </ul>
       </div>
       <div class="item item-divider">
-        R{{selectedCar.price | currency}}
+        Total: R{{selectedCar.price | currency}}
       </div>
     </div>
   </ion-content>
