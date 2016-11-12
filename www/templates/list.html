@@ -2,7 +2,9 @@
   <ion-nav-title>Galvão Car</ion-nav-title>
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="car in carList" href="#/car/{{car}}">{{car}}</ion-item>
+      <ion-item ng-repeat="car in carList" href="#/car/{{car}}">
+        {{car.name}} - R{{car.price | currency}}
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
