@@ -11,6 +11,11 @@ angular.module('starter')
       url:'/car/:selectedCar',
       templateUrl: 'templates/car.html',
       controller: 'CarController'
+    })
+    .state('finish', {
+      url:'/finish/:car',
+      templateUrl: 'templates/finish.html',
+      controller: 'FinishController'
     });
 
 })

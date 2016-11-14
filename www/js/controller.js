@@ -15,18 +15,29 @@ angular.module('starter')
 });
 
 angular.module('starter')
-.controller('CarController', function($stateParams, $scope){
+  .controller('CarController', function($stateParams, $scope){
 
-  $scope.selectedCar = angular.fromJson($stateParams.selectedCar);
-  $scope.accessories = [{'name':'Freio ABS', 'price': 800},
-                        {'name':'Ar Condiconado', 'price': 1000},
-                        {'name':'MP3 Player', 'price': 500}
-                        ];
-  $scope.check = function(accessory, isChecked){
-    if(isChecked) {
-      $scope.selectedCar.price += accessory.price;
-    }else {
-      $scope.selectedCar.price -= accessory.price;
+    $scope.selectedCar = angular.fromJson($stateParams.selectedCar);
+    $scope.accessories = [{'name':'Freio ABS', 'price': 800},
+                          {'name':'Ar Condiconado', 'price': 1000},
+                          {'name':'MP3 Player', 'price': 500}
+                          ];
+    $scope.check = function(accessory, isChecked){
+      if(isChecked) {
+        $scope.selectedCar.price += accessory.price;
+      }else {
+        $scope.selectedCar.price -= accessory.price;
+      }
     }
-  }
-});
+  })
+  .controller('FinishController',function($stateParams, $scope, $ionicPopup, $state){
+    $scope.finishedCar = angular.fromJson($stateParams.car);
+    $scope.finishOrder = function(){
+      $ionicPopup.alert({
+        title: 'Parabéns',
+        template: 'Você acaba de comprar um '+$scope.finishedCar.name
+      }).then(function(){
+        $state.go('listagem');
+      });
+    }
+  });
